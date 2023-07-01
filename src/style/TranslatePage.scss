@@ -50,6 +50,14 @@
 
                         * {
                             cursor: pointer;
+
+                            &:hover {
+                                background-color: initial;
+                            }
+
+                            .MuiTouchRipple-root {
+                                display: none;
+                            }
                         }
                     }
                 }

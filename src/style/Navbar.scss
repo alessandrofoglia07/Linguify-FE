@@ -26,6 +26,10 @@
 
         .linkToHomePage {
             text-decoration: none;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
 
             .logoText {
                 color: v.$color-secondary;
