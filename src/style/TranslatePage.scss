@@ -19,6 +19,14 @@
             left: 50%;
             transform: translate(-50%, -50%);
 
+            /* Smaller screen (mobile) */
+            @media only screen and (max-width: 768px) {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
             .languages {
 
                 display: flex;
@@ -41,8 +49,17 @@
                 }
 
                 .chooseLang {
-                    width: 35%;
                     max-width: 500px;
+
+                    /* Smaller screen (mobile) */
+                    @media only screen and (max-width: 768px) {
+                        width: 35%
+                    }
+
+                    /* Larger screen (desktop/tablet) */
+                    @media only screen and (min-width: 768px) {
+                        width: 30%;
+                    }
 
                     .setLangBtn {
                         width: 100%;
@@ -64,9 +81,98 @@
             }
 
             .text {
-                background-color: aqua;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 20px 0;
+
+                /* Smaller screen (mobile) */
+                @media only screen and (max-width: 768px) {
+                    flex-direction: column;
+                    gap: 10px;
+                }
+
+                /* Larger screen (desktop/tablet) */
+                @media only screen and (min-width: 768px) {
+                    flex-direction: row;
+                    gap: 70px
+                }
+
+                .input {
+
+                    /* Smaller screen (mobile) */
+                    @media only screen and (max-width: 768px) {
+                        width: 90%;
+                    }
+
+                    /* Larger screen (desktop/tablet) */
+                    @media only screen and (min-width: 768px) {
+                        width: 30%;
+                    }
+
+                    max-width: 500px;
+                    height: 100%;
+
+                    * {
+                        font-family: v.$font-text;
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+
+            .init {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1px;
+
+                &>* {
+                    width: 100%;
+                }
+            }
+
+            .translated {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1px;
+
+                &>* {
+                    width: 100%;
+                }
+            }
+
+            .swap {
+                .swapBtn {
+
+                    width: 50px;
+                    height: 50px;
+                    margin: 0 10px;
+                    border-radius: 10px;
+
+                    .swapIcon {
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
             }
         }
 
+    }
+}
+
+.MuiAutocomplete-popper {
+
+    /* Smaller screen (mobile) */
+    @media only screen and (max-width: 768px) {
+        position: absolute !important;
+        top: 50% !important;
+        left: 0 !important;
+        transform: translateY(-50%) !important;
+
+        * {
+            width: 100vw;
+        }
     }
 }

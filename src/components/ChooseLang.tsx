@@ -20,6 +20,7 @@ const ChooseLang: React.FC<IProps> = ({ num, lang, setLang, possibleLangs }: IPr
 
     useEffect(() => {
         if (lang.name !== input) setInput(lang.name);
+        if (num === 2 && lang.name === 'Detect Language') setLang(possibleLangs[0]);
     }, [lang]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -50,7 +51,16 @@ const ChooseLang: React.FC<IProps> = ({ num, lang, setLang, possibleLangs }: IPr
                 options={langToChoose.map((lang: Language) => lang.name)}
                 onChange={handleAutocompleteChange}
                 value={input}
-                renderInput={(params) => <TextField {...params} onChange={handleInputChange} placeholder='Select a language' />}
+                renderInput={(params) => (
+                    <TextField
+                        {...params}
+                        onChange={handleInputChange}
+                        placeholder='Select a language'
+                        InputProps={{
+                            endAdornment: <></>
+                        }}
+                    />
+                )}
             />
         </div>
     );
