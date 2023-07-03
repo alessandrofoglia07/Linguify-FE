@@ -126,6 +126,7 @@
                 flex-direction: column;
                 align-items: center;
                 gap: 1px;
+                width: 85%;
 
                 &>* {
                     width: 100%;
@@ -137,6 +138,7 @@
                 flex-direction: column;
                 align-items: center;
                 gap: 1px;
+                width: 85%;
 
                 &>* {
                     width: 100%;
@@ -159,20 +161,5 @@
             }
         }
 
-    }
-}
-
-.MuiAutocomplete-popper {
-
-    /* Smaller screen (mobile) */
-    @media only screen and (max-width: 768px) {
-        position: absolute !important;
-        top: 50% !important;
-        left: 0 !important;
-        transform: translateY(-50%) !important;
-
-        * {
-            width: 100vw;
-        }
     }
 }

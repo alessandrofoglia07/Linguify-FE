@@ -51,16 +51,7 @@ const ChooseLang: React.FC<IProps> = ({ num, lang, setLang, possibleLangs }: IPr
                 options={langToChoose.map((lang: Language) => lang.name)}
                 onChange={handleAutocompleteChange}
                 value={input}
-                renderInput={(params) => (
-                    <TextField
-                        {...params}
-                        onChange={handleInputChange}
-                        placeholder='Select a language'
-                        InputProps={{
-                            endAdornment: <></>
-                        }}
-                    />
-                )}
+                renderInput={(params) => <TextField {...params} onChange={handleInputChange} placeholder='Select a language' />}
             />
         </div>
     );
