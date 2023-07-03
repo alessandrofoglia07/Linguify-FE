@@ -1,11 +1,11 @@
-import React, { Dispatch, SetStateAction, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Autocomplete, TextField } from '@mui/material';
 import { Language } from '@/types';
 
 interface IProps {
     num: 1 | 2;
     lang: Language;
-    setLang: Dispatch<SetStateAction<Language>>;
+    setLang: (lang: Language) => void;
     possibleLangs: Language[];
 }
 
