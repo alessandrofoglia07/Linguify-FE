@@ -5,7 +5,7 @@ import '@/style/Navbar.scss';
 import useWindowWidth from '@/hooks/useWindowWidth';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 
-const TranslateIcon = TranslateRoundedIcon;
+export const TranslateIcon = TranslateRoundedIcon;
 
 const Navbar: React.FC<any> = () => {
     const width: number = useWindowWidth();
