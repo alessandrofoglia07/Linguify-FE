@@ -4,7 +4,6 @@
 
     position: absolute;
     inset: 0;
-    width: 100vw;
 
     .topper {
         background-color: #888888;
@@ -24,45 +23,64 @@
         .title {
             display: flex;
             align-items: center;
-            font-size: 4rem;
             font-family: v.$font-title;
             color: v.$color-secondary;
             letter-spacing: -2px;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
 
             /* Smaller screen (mobile) */
             @media only screen and (max-width: 768px) {
+                font-size: 4rem;
                 margin-top: -50px;
                 margin-left: -30px;
             }
 
             /* Larger screen (desktop/tablet) */
             @media only screen and (min-width: 768px) {
+                font-size: 8rem;
                 margin-top: -70px;
                 margin-left: -50px;
             }
 
 
             .titleIcon {
-                font-size: 5rem;
 
                 /* Smaller screen (mobile) */
                 @media only screen and (max-width: 768px) {
                     margin-right: 1rem;
+                    font-size: 5rem;
                 }
 
                 /* Larger screen (desktop/tablet) */
                 @media only screen and (min-width: 768px) {
                     margin-right: 2rem;
+                    font-size: 9rem;
                 }
             }
         }
 
         .subtitle {
-            font-size: 1.5rem;
             font-family: v.$font-text;
             letter-spacing: -.5px;
             color: v.$color-secondary;
             margin-top: .8rem;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+
+            /* Smaller screen (mobile) */
+            @media only screen and (max-width: 768px) {
+                font-size: 1.5rem;
+            }
+
+            /* Larger screen (desktop/tablet) */
+            @media only screen and (min-width: 768px) {
+                font-size: 2rem;
+            }
 
             span {
                 color: v.$color-primary;
@@ -70,5 +88,154 @@
         }
     }
 
-    .content {}
+    .content {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        .contentTitle {
+            font-family: v.$font-title;
+            margin: 150px 0 50px 0;
+
+            /* Smaller screen (mobile) */
+            @media only screen and (max-width: 768px) {
+                font-size: 2rem;
+            }
+
+            /* Larger screen (desktop/tablet) */
+            @media only screen and (min-width: 768px) {
+                font-size: 3rem;
+            }
+        }
+
+        .container {
+
+            width: 60%;
+            height: 500px;
+            display: flex;
+
+            /* Smaller screen (mobile) */
+            @media only screen and (max-width: 768px) {
+                flex-direction: column;
+            }
+
+            /* Larger screen (desktop/tablet) */
+            @media only screen and (min-width: 768px) {
+                flex-direction: row;
+            }
+
+            justify-content: space-evenly;
+            align-items: center;
+
+            img {
+                user-drag: none;
+                -webkit-user-drag: none;
+                -moz-user-drag: none;
+                -ms-user-drag: none;
+
+                /* Smaller screen (mobile) */
+                @media only screen and (max-width: 768px) {
+                    width: 400px
+                }
+
+                /* Larger screen (desktop/tablet) */
+                @media only screen and (min-width: 768px) {
+                    width: 500px;
+                }
+
+                aspect-ratio: auto;
+            }
+
+            .text {
+                width: 100%;
+                text-align: center;
+                font-family: v.$font-text;
+                font-size: 2rem;
+
+                b {
+                    color: v.$color-primary;
+                }
+            }
+        }
+
+    }
+
+    footer {
+        width: 100%;
+        max-width: 1000px;
+        height: 300px;
+        background: linear-gradient(90deg, v.$color-primary-hover 0%, v.$color-primary 100%);
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        box-shadow: 0px -10px 20px 0px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 50px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+
+        div {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footerText {
+            font-family: v.$font-text;
+            text-align: center;
+            color: v.$color-secondary;
+
+            /* Smaller screen (mobile) */
+            @media only screen and (max-width: 768px) {
+                font-size: 1.7rem;
+                padding: 1rem 0;
+            }
+
+            /* Larger screen (desktop/tablet) */
+            @media only screen and (min-width: 768px) {
+                font-size: 1.5rem;
+                padding: 2rem 0;
+            }
+        }
+
+        .footerBtn {
+            width: 60%;
+            max-width: 500px;
+            height: 50px;
+            border-radius: 10px;
+            border: 3px solid v.$color-tertiary;
+            font-size: 1.3rem;
+            font-family: v.$font-text;
+            background-color: v.$color-secondary;
+            cursor: pointer;
+
+            &:hover {
+                background-color: v.$color-tertiary;
+                color: v.$color-secondary;
+                border: 3px solid v.$color-secondary;
+            }
+        }
+
+        .finalText {
+            font-family: v.$font-text;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            color: v.$color-secondary;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+
+            a {
+                color: v.$color-secondary;
+            }
+        }
+    }
 }
