@@ -14,18 +14,30 @@ const TranslatePage: React.FC<any> = () => {
     const width = useWindowWidth();
 
     const [possibleLangs, setPossibleLangs] = useState<Language[]>([]);
-    const [lang1, setLang1State] = useState<Language>({ name: 'Detect Language', code: '/' });
-    const [lang2, setLang2State] = useState<Language>({ name: 'Italian', code: 'it' });
+    const [lang1, setLang1State] = useState<Language>({ name: 'Loading...', code: '1' });
+    const [lang2, setLang2State] = useState<Language>({ name: 'Loading...', code: '1' });
     const [initText, setInitText] = useState<string>('');
     const [translatedText, setTranslatedText] = useState<string>('');
 
     useEffect(() => {
         getPossibleLanguages();
+        const lang1Storage = JSON.parse(localStorage.getItem('lang1') || '{ "name": "Detect Language", "code": "/" }');
+        const lang2Storage = JSON.parse(localStorage.getItem('lang2') || '{ "name": "English", "code": "en" }');
+        setLang1State(lang1Storage);
+        setLang2State(lang2Storage);
     }, []);
 
     useEffect(() => {
         if (initText === '') setTranslatedText('');
     }, [initText]);
+
+    useEffect(() => {
+        setTimeout(() => {
+            localStorage.setItem('lang1', JSON.stringify(lang1));
+            localStorage.setItem('lang2', JSON.stringify(lang2));
+        }, 0);
+        translate();
+    }, [lang1, lang2]);
 
     const getPossibleLanguages = async (): Promise<void> => {
         const res = await axios.get('http://localhost:4000/languages');

@@ -12,6 +12,7 @@ interface IProps {
 const ChooseLang: React.FC<IProps> = ({ num, lang, setLang, possibleLangs }: IProps) => {
     const [langToChoose, setLangToChoose] = useState<Language[]>(possibleLangs);
     const [input, setInput] = useState<string>(lang.name);
+    const [loading, setLoading] = useState<boolean>(lang.code === '1');
 
     useEffect(() => {
         if (possibleLangs !== langToChoose) setLangToChoose(possibleLangs);
@@ -21,6 +22,11 @@ const ChooseLang: React.FC<IProps> = ({ num, lang, setLang, possibleLangs }: IPr
     useEffect(() => {
         if (lang.name !== input) setInput(lang.name);
         if (num === 2 && lang.name === 'Detect Language') setLang(possibleLangs[0]);
+        if (lang.code !== '1') {
+            setLoading(false);
+        } else {
+            setLoading(true);
+        }
     }, [lang]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -50,8 +56,8 @@ const ChooseLang: React.FC<IProps> = ({ num, lang, setLang, possibleLangs }: IPr
                 id={`langSelector${num}`}
                 options={langToChoose.map((lang: Language) => lang.name)}
                 onChange={handleAutocompleteChange}
-                value={input}
-                renderInput={(params) => <TextField {...params} onChange={handleInputChange} placeholder='Select a language' />}
+                value={loading ? '' : input}
+                renderInput={(params) => <TextField {...params} onChange={handleInputChange} placeholder={loading ? '' : 'Select a language'} />}
             />
         </div>
     );
